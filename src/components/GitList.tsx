@@ -1,5 +1,5 @@
 import { Flex, Heading } from "@chakra-ui/react";
-import { SettingsIcon } from "@chakra-ui/icons";
+import { RepeatIcon, SettingsIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import React, { ReactElement, useEffect, useState } from "react";
 import GitPush from "./GitPush";
@@ -24,6 +24,9 @@ export default function GitList({}: Props): ReactElement {
     <div>
       <Heading size="md" mx="auto" textAlign="center">
         Activity Feed
+        <Link to="/">
+          <RepeatIcon ml={3} />
+        </Link>
       </Heading>
       {push &&
         push?.slice(0, 4).map((commit) => {

@@ -2,8 +2,9 @@
   "manifest_version": 2,
 
   "name": "Github Activity",
-  "description": "This extension allows you to see at a glance your github history",
-  "version": "0.0.1",
+  "description": "This extension allows you to quickly check your github activity",
+  "version": "1.0.0",
+  "author": "Nelson Rowley",
 
   "browser_action": {
     "default_popup": "index.html",

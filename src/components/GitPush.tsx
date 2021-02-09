@@ -19,8 +19,6 @@ interface Props {
 }
 
 export default function GitItem({ data }: Props): ReactElement {
-  console.log(data);
-
   const push_ref = data.payload.ref.replace("refs/heads/", "");
 
   const dt = new Date(data.created_at).toLocaleTimeString([], {
