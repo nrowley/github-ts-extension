@@ -13,6 +13,7 @@ import {
 import { title } from "process";
 import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
+import { v4 } from "uuid";
 
 interface Props {
   data: any;
@@ -30,9 +31,8 @@ export default function GitItem({ data }: Props): ReactElement {
   let commits = data.payload.commits;
 
   return (
-    <div>
+    <div key={v4()}>
       <Box
-        key={data.id}
         maxW="400px"
         w="100%"
         mt="5"
@@ -56,7 +56,7 @@ export default function GitItem({ data }: Props): ReactElement {
                 <List spacing={3}>
                   {commits.map((commit) => (
                     <>
-                      <ListItem>
+                      <ListItem key={v4()}>
                         <Text fontSize="sm" noOfLines={1}>
                           <Avatar mr={2} w={6} h={6} shadow={4} src={avatar} />
                           <AddIcon w={2} h={2} mr="1" color="green.300" />

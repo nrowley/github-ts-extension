@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { ReactElement, useEffect, useState } from "react";
 import GitPush from "./GitPush";
 import { Link } from "react-router-dom";
+import { v4 } from "uuid";
 
 interface Props {}
 
@@ -12,7 +13,7 @@ export default function GitList({}: Props): ReactElement {
   useEffect(() => {
     async function getCommits() {
       const res = await fetch(
-        `https://api.github.com/users/${localStorage.githubusername}/events`
+        `https://api.github.com/users/${localStorage.github_username}/events`
       );
 
       var data = await res.json();
@@ -24,16 +25,14 @@ export default function GitList({}: Props): ReactElement {
     <div>
       <Heading size="md" mx="auto" textAlign="center">
         Activity Feed
-        <Link to="/">
+        <Link to="">
           <RepeatIcon ml={3} />
         </Link>
       </Heading>
       {push &&
-        push?.slice(0, 4).map((commit) => {
-          return <GitPush key={commit.id} data={commit} />;
+        push?.slice(0, 20).map((commit) => {
+          return <GitPush key={v4()} data={commit} />;
         })}
-
-      {}
     </div>
   );
 }

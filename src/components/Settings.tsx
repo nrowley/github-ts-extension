@@ -24,7 +24,7 @@ export default function Settings({}: Props): ReactElement {
 
   const onSubmit = (data) => {
     localStorage.github_username = data.username;
-    window.location.replace("/");
+    window.location.replace("/index.html");
   };
 
   return (
